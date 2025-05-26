@@ -21,3 +21,5 @@ jobs:
       run: |
         cd cpp
         make
+        make execute
+        make clean
