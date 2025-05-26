@@ -15,6 +15,8 @@ all: $(TARGET)
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+execute:
+	./hello
 
 # Limpiar archivos generados
 clean:
