@@ -5,7 +5,7 @@ TARGET = hello
 CXX = g++
 
 # Archivos fuente
-SRC = main.cpp
+SRC = hello_world.cpp
 
 # Flags de compilación
 CXXFLAGS = -Wall -std=c++11
@@ -15,6 +15,11 @@ all: $(TARGET)
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+
+test:
+      g++ -std=c++11 helloTest.cpp -lcppunit -o helloTest
+      chmod +x hello
+      ./helloTest
 
 # Limpiar archivos generados
 clean:
