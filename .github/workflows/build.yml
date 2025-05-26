@@ -1,0 +1,23 @@
+name: Build C++ Project
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install g++
+      run: sudo apt update && sudo apt install -y g++
+
+    - name: Compile C++ file
+      run: |
+        cd cpp
+        make
