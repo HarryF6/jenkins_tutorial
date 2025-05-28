@@ -19,7 +19,7 @@ $(TARGET): $(SRC)
 execute:
 	./$(TARGET)
 
-clang_format:
+clang_compile:
 	clang++ $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 format_check:
