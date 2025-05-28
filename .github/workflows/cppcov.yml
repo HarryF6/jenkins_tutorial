@@ -3,14 +3,14 @@ name: Code coverage hello_world.cpp with Makefile
 on:
   push:
     branches: [main]
-    # paths:
-    #   - '**.cpp'
-    #   - '**.h'      
+    paths:
+      - '**.cpp'
+      - '**.h'      
   pull_request:
     branches: [main]
-    # paths:
-    #   - '**.cpp'
-    #   - '**.h'
+    paths:
+      - '**.cpp'
+      - '**.h'
 
 jobs:
   build-and-run:
@@ -27,7 +27,6 @@ jobs:
         run: |
           cd cpp
           make clean coverage execute
-          ls
           
           mv hello-hello_world.gcda hello_world.gcda
           mv hello-hello_world.gcno hello_world.gcno
