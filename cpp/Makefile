@@ -27,8 +27,8 @@ format:
 	clang-format -i $(SRC)
 
 coverage: 
-	CXXFLAGS += $(COVERAGE_FLAGS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+	
+	$(CXX) $(CXXFLAGS) $(COVERAGE_FLAGS) -o $(TARGET) $(SRC)
 	
 
 check:
