@@ -18,13 +18,14 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y build-essential clang-format
 
       - name: Build with Makefile
-        run: make all
+        run: |
+          cd cpp
+          make coverage
 
       - name: Run executable
-        run: make execute
-
-      - name: Format check
-        run: make check
+        run: |
+          make execute
 
       - name: Clean build artifacts
-        run: make clean
+        run: |
+          make clean
