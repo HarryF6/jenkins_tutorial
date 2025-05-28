@@ -32,6 +32,12 @@ jobs:
         run: |
           cd cpp
           make execute
+          
+      - name: Generate coverage report
+        run: |
+          cd cpp
+          gcov -o cpp hello_world.cpp
+          cat hello_world.cpp.gcov
 
       - name: Clean build artifacts
         run: |
