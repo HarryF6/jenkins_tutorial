@@ -28,6 +28,10 @@ jobs:
           cd cpp
           make clean coverage execute
           ls
+          
+          mv hello-hello_world.gcda hello_world.gcda
+          mv hello-hello_world.gcno hello_world.gcno
+          
           gcov hello_world.cpp 
           cat hello_world.cpp.gcov  
 
