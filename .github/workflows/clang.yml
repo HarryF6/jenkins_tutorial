@@ -30,11 +30,6 @@ jobs:
         cd cpp
         make cclang
 
-    - name: Format clang
-      run: |
-        cd cpp
-        make format
-
     - name: Check code format
       run: |
         cd cpp
