@@ -27,8 +27,8 @@ jobs:
 
     - name: Compile with clang
       run: |
-        make clang_compile
+        make cclang
 
     - name: Check code format
       run: |
-        make format_check
+        make format
