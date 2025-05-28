@@ -1,3 +1,3 @@
 # python/hello_world.py
-
-print("Hello world from script")
+def hello():
+  print("Hello world from script")
