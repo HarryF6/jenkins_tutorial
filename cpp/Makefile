@@ -23,6 +23,9 @@ cclang:
 	clang++ $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 format:
+	clang-format -i $(SRC)
+
+check:
 	clang-format --dry-run --Werror $(SRC)
 
 # Limpiar archivos generados
