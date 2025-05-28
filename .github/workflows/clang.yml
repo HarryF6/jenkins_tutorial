@@ -27,8 +27,10 @@ jobs:
 
     - name: Compile with clang
       run: |
+        cd cpp
         make cclang
 
     - name: Check code format
       run: |
+        cd cpp
         make format
