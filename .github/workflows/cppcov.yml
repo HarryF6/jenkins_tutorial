@@ -1,4 +1,4 @@
-name: C++ Build and Coverage for hello_world.cpp
+name: Build and Run hello_world.cpp with Makefile
 
 on:
   push:
@@ -7,32 +7,24 @@ on:
     branches: [main]
 
 jobs:
-  build-and-coverage:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install gcc and gcov
-        run: sudo apt-get update && sudo apt-get install -y build-essential gcov
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y build-essential clang-format
 
-      - name: Compile hello_world.cpp with coverage flags
-        run: |
-          cd cpp
-          make
+      - name: Build with Makefile
+        run: make all
 
       - name: Run executable
-        run: ./hello_world
+        run: make execute
 
-      - name: Generate coverage report
-        run: |
-          gcov -o cpp hello_world.cpp
-          cat hello_world.cpp.gcov
+      - name: Format check
+        run: make check
 
-      # Opcional: subir reporte a Codecov (requiere token configurado)
-      #- name: Upload coverage to Codecov
-      #  uses: codecov/codecov-action@v4
-      #  with:
-      #    token: ${{ secrets.CODECOV_TOKEN }}
-      #    files: cpp/*.gcov
+      - name: Clean build artifacts
+        run: make clean
