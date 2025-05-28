@@ -17,6 +17,7 @@ all: $(TARGET)
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
+# execute
 execute:
 	./$(TARGET)
 
@@ -27,10 +28,8 @@ format:
 	clang-format -i $(SRC)
 
 coverage: 
-	
 	$(CXX) $(CXXFLAGS) $(COVERAGE_FLAGS) -o $(TARGET) $(SRC)
 	
-
 check:
 	clang-format --dry-run --Werror $(SRC)
 
