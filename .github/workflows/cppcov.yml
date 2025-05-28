@@ -30,8 +30,10 @@ jobs:
 
       - name: Run executable
         run: |
+          cd cpp
           make execute
 
       - name: Clean build artifacts
         run: |
+          cd cpp
           make clean
