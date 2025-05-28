@@ -1,4 +1,4 @@
-name: Build and Run hello_world.cpp with Makefile
+name: Code coverage hello_world.cpp with Makefile
 
 on:
   push:
