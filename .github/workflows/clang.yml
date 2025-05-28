@@ -31,5 +31,4 @@ jobs:
 
     - name: Check code format
       run: |
-        FILES=$(find . -regex '.*\.\(c\|cpp\|h\|hpp\)$')
-        clang-format --dry-run --Werror $FILES
+        make format_check
