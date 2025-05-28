@@ -19,10 +19,10 @@ $(TARGET): $(SRC)
 execute:
 	./$(TARGET)
 
-clang_compile:
+cclang:
 	clang++ $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-format_check:
+format:
 	clang-format --dry-run --Werror $(SRC)
 
 # Limpiar archivos generados
