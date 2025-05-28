@@ -1,0 +1,37 @@
+name: Build and Format Check (Clang)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Compile
+      run: |
+        sudo apt update && sudo apt install -y g++
+        cd cpp
+        cmake ..
+        make
+
+    - name: Install Clang and clang-format
+      run: |
+        sudo apt update
+        sudo apt install -y clang clang-format
+
+    - name: Compile with clang
+      run: |
+        cmake .. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+        make
+
+    - name: Check code format
+      run: |
+        FILES=$(find . -regex '.*\.\(c\|cpp\|h\|hpp\)$')
+        clang-format --dry-run --Werror $FILES
