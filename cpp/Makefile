@@ -9,6 +9,7 @@ SRC = hello_world.cpp
 
 # Flags de compilación
 CXXFLAGS = -Wall -std=c++11
+COVERAGE_FLAGS = -fprofile-arcs -ftest-coverage
 
 # Regla por defecto
 all: $(TARGET)
@@ -25,9 +26,14 @@ cclang:
 format:
 	clang-format -i $(SRC)
 
+coverage: 
+	CXXFLAGS += $(COVERAGE_FLAGS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+	
+
 check:
 	clang-format --dry-run --Werror $(SRC)
 
 # Limpiar archivos generados
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET) *.gcda *.gcno *.gcov
