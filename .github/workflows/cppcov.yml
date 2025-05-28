@@ -3,8 +3,14 @@ name: Code coverage hello_world.cpp with Makefile
 on:
   push:
     branches: [main]
+    paths:
+      - '**.cpp'
+      - '**.h'      
   pull_request:
     branches: [main]
+    paths:
+      - '**.cpp'
+      - '**.h'
 
 jobs:
   build-and-run:
