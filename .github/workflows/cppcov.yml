@@ -22,22 +22,15 @@ jobs:
 
       - name: Install build tools
         run: sudo apt-get update && sudo apt-get install -y build-essential clang-format
-
-      - name: Build with Makefile
-        run: |
-          cd cpp
-          make coverage
-
-      - name: Run executable
-        run: |
-          cd cpp
-          make execute
           
       - name: Generate coverage report
         run: |
           cd cpp
-          gcov -o cpp hello_world.cpp
-          cat hello_world.cpp.gcov
+          make clean
+          make coverage              # compila con flags para cobertura
+          ./hello            # ejecuta el binario para generar archivos .gcda
+          gcov hello_world.cpp  # genera reporte .gcov basado en datos .gcda y .gcno
+          cat hello_world.cpp.gcov  # muestra el reporte
 
       - name: Clean build artifacts
         run: |
