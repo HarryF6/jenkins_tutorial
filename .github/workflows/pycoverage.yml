@@ -3,9 +3,12 @@ name: Python Coverage for hello_world.py (without real tests)
 on:
   push:
     branches: [main]
+    paths:
+      - '**.py'
   pull_request:
     branches: [main]
-
+    paths:
+      - '**.py'
 jobs:
   coverage:
     runs-on: ubuntu-latest
