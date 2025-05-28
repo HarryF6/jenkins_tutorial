@@ -30,6 +30,7 @@ jobs:
           make coverage              # compila con flags para cobertura
           ./hello            # ejecuta el binario para generar archivos .gcda
           gcov hello_world.cpp  # genera reporte .gcov basado en datos .gcda y .gcno
+          ls
           cat hello_world.cpp.gcov  # muestra el reporte
 
       - name: Clean build artifacts
