@@ -25,10 +25,9 @@ jobs:
           
       - name: Generate coverage report
         run: |
-          cd cpp & ls
-          make clean
-          make coverage              
-          make execute           
+          cd cpp
+          make clean coverage execute
+          ls
           gcov hello_world.cpp 
           cat hello_world.cpp.gcov  
 
