@@ -18,7 +18,6 @@ jobs:
       run: |
         sudo apt update && sudo apt install -y g++
         cd cpp
-        cmake ..
         make
 
     - name: Install Clang and clang-format
@@ -28,8 +27,7 @@ jobs:
 
     - name: Compile with clang
       run: |
-        cmake .. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
-        make
+        make clang_format
 
     - name: Check code format
       run: |
