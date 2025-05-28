@@ -26,7 +26,7 @@ jobs:
 
       - name: Run dummy test to execute hello_world.py
         run: |
-          coverage run --source=python/hello_world -m pytest python/test_dummy.py
+          coverage run --source=python -m pytest python/test_dummy.py
           coverage report
           coverage xml
 
