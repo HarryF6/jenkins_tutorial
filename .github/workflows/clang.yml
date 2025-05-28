@@ -3,8 +3,14 @@ name: Build and Format Check (Clang)
 on:
   push:
     branches: [ main ]
+    paths:
+      - '**.cpp'
+      - '**.h'
   pull_request:
     branches: [ main ]
+    paths:
+      - '**.cpp'
+      - '**.h'
 
 jobs:
   build:
